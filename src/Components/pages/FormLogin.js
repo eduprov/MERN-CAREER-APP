@@ -1,41 +1,40 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Form.css";
-import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "../../actions/userActions";
 
 const FormLogin = () => {
   const [email, pickEmail] = useState("");
   const [password, pickPassword] = useState("");
-  const [loading, setLoading] = useState("");
   const [message, updateMessage] = useState("");
+
+  const dispatch = useDispatch();
+
+  // useSelector to access out state
+  const userLogin = useSelector((state) => state.userLogin);
+  const { loading, error, userInfo } = userLogin;
+
+  useEffect(() => {
+    const userInfo = localStorage.getItem("userInfo");
+  }, []);
 
   const Login = async (e) => {
     e.preventDefault();
 
-    try {
-      setLoading(true);
-      const { data } = await axios.post(
-        "http://localhost:5000/api/users/login",
-        {
-          email,
-          password,
-        }
-      );
-      console.log(data);
-      localStorage.setItem("userInfo", JSON.stringify(data));
-      setLoading(false);
-      updateMessage("Logged in Successfully...");
-    } catch (error) {
-      updateMessage(error.response.data.message);
-      setLoading(false);
-    }
+    dispatch(login(email, password));
   };
 
   return (
     <div className="form-content-right">
       <form className="form" noValidate>
         <h1>Login to Your Account</h1>
-        <p className="text-success">{message}</p>
+        {loading && (
+          <div class="spinner-border text-success" role="status">
+            <span class="sr-only"></span>
+          </div>
+        )}
+        <p className="text-success">{error}</p>
         <div className="form-inputs">
           <label className="form-label">Email</label>
           <input

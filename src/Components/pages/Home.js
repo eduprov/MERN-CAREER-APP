@@ -28,7 +28,7 @@ const Home = () => {
                 </div>
                 <div className="col-md-2"></div>
                 <div className="col-md-4 banner-col">
-                  <img src={Banner} className="banner-img" />
+                  <img src={Banner} className="banner-img" alt="Hero image" />
                 </div>
               </div>
             </div>
@@ -56,12 +56,20 @@ const Home = () => {
             </h5>
           </div>
           <div className="col-md-4 text-center">
-            <img src={InterviewImg} className="banner-img" />
+            <img
+              src={InterviewImg}
+              className="banner-img"
+              alt="Interview section"
+            />
           </div>
         </div>
         <div className="row mt-5">
           <div className="col-md-4 text-center">
-            <img src={ManagerImg} className="banner-img" />
+            <img
+              src={ManagerImg}
+              className="banner-img"
+              alt="Manager section"
+            />
           </div>
           <div className="col-md-8 mt-5 pt-5">
             <h4 className="text-center">Managerial round</h4>
@@ -80,7 +88,7 @@ const Home = () => {
             </h5>
           </div>
           <div className="col-md-4 text-center">
-            <img src={HRImg} className="banner-img" />
+            <img src={HRImg} className="banner-img" alt="Hr section" />
           </div>
         </div>
       </div>
