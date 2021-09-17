@@ -40,12 +40,9 @@ export function NavLinks(props) {
   return (
     <NavLinksContainer>
       <LinksWrapper>
-        <LinkItem>
+        {/* <LinkItem>
           <Link href="/profile">Profile</Link>
-        </LinkItem>
-        <LinkItem>
-          <Link href="/application">Application Form</Link>
-        </LinkItem>
+        </LinkItem> */}
       </LinksWrapper>
     </NavLinksContainer>
   );
