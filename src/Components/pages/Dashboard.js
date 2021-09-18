@@ -53,12 +53,6 @@ const Dashboard = () => {
                   );
                 })}
               </tbody>
-              {/* <tr key={interview._id}>
-                  <td>{interview.name}</td>
-                  <td>{interview.mobile}</td>
-                  <td>{interview.email}</td>
-                  <td>Pe</td>
-                </tr> */}
             </table>
           </div>
         </div>

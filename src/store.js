@@ -5,7 +5,11 @@ import {
   interviewCreateReducer,
   interviewListReducer,
 } from "./reducers/interviewReducer";
-import { userLoginReducer, userRegisterReducer } from "./reducers/userReducer";
+import {
+  userLoginReducer,
+  userRegisterReducer,
+  userUpdateReducer,
+} from "./reducers/userReducer";
 
 const reducer = combineReducers({
   // this will contain our reducers
@@ -13,6 +17,7 @@ const reducer = combineReducers({
   userRegister: userRegisterReducer,
   interviewList: interviewListReducer,
   interviewCreate: interviewCreateReducer,
+  userUpdate: userUpdateReducer,
 });
 
 const userInfoFromStorage = localStorage.getItem("userInfo")
