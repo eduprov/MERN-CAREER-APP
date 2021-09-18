@@ -8,6 +8,7 @@ import Home from "./Components/pages/Home";
 import Login from "./Components/pages/Login";
 import Dashboard from "./Components/pages/Dashboard";
 import ApplicationForm from "./Components/pages/ApplicationForm";
+import Profile from "./Components/pages/Profile";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Route exact path="/login" component={Login} />
       <Route exact path="/myhome" component={Dashboard} />
       <Route exact path="/application" component={ApplicationForm} />
+      <Route exact path="/profile" component={Profile} />
     </BrowserRouter>
   );
 }

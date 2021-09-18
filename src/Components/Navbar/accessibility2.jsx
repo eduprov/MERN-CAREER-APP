@@ -67,12 +67,11 @@ export function AccessibilityTwo(props) {
 
   return (
     <AccessibilityContainer>
-      <Link to="/register">
+      <Link to="/profile">
         <RegisterButton>Profile</RegisterButton>
       </Link>
 
-        <LoginButton onClick={logoutHandler}>Logout</LoginButton>
- 
+      <LoginButton onClick={logoutHandler}>Logout</LoginButton>
     </AccessibilityContainer>
   );
 }
