@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Footer from "../Footer/Footer";
 import { Navbar } from "../Navbar";
 import { useDispatch, useSelector } from "react-redux";
@@ -55,6 +55,15 @@ const ApplicationForm = ({ history }) => {
     );
     history.push("/myhome");
   };
+
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
+
+  useEffect(() => {
+    if (!userInfo) {
+      history.push("/");
+    }
+  },[history, userInfo]);
 
   return (
     <>

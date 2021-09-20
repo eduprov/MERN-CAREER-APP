@@ -6,6 +6,9 @@ import {
   INTERVIEW_LIST_FAIL,
   INTERVIEW_LIST_REQUEST,
   INTERVIEW_LIST_SUCCESS,
+  INTERVIEW_UPDATE_FAIL,
+  INTERVIEW_UPDATE_REQUEST,
+  INTERVIEW_UPDATE_SUCCESS,
 } from "../constants/InterviewConstants";
 
 export const listInterview = () => async (dispatch, getState) => {
@@ -117,6 +120,38 @@ export const createInterviewAction =
           : error.message;
       dispatch({
         type: INTERVIEW_CREATE_FAIL,
+        payload: message,
+      });
+    }
+  };
+
+export const updateInterviewAction =
+  (id, name, email) => async (dispatch, getState) => {
+    try {
+      dispatch({
+        type: INTERVIEW_UPDATE_REQUEST,
+      });
+
+      const {
+        adminLogin: { adminLogin },
+      } = getState();
+
+      const { data } = await axios.put(
+        `http://localhost:5000/api/interviewapi/${id}`,
+        { name, email }
+      );
+
+      dispatch({
+        type: INTERVIEW_UPDATE_SUCCESS,
+        payload: data,
+      });
+    } catch (error) {
+      const message =
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message;
+      dispatch({
+        type: INTERVIEW_UPDATE_FAIL,
         payload: message,
       });
     }

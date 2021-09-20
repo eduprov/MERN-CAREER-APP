@@ -5,6 +5,9 @@ import {
   INTERVIEW_LIST_FAIL,
   INTERVIEW_LIST_REQUEST,
   INTERVIEW_LIST_SUCCESS,
+  INTERVIEW_UPDATE_FAIL,
+  INTERVIEW_UPDATE_REQUEST,
+  INTERVIEW_UPDATE_SUCCESS,
 } from "../constants/InterviewConstants";
 
 export const interviewListReducer = (state = { interviews: [] }, action) => {
@@ -32,4 +35,17 @@ export const interviewCreateReducer = (state = {}, action) =>{
       return state;
   }
 
+}
+
+export const interviewupdateReducer = (state = {}, action) =>{
+  switch (action.type) {
+    case INTERVIEW_UPDATE_REQUEST:
+      return {loading: true}
+    case INTERVIEW_UPDATE_SUCCESS:
+      return {loading: false, success:true}
+    case INTERVIEW_UPDATE_FAIL:
+      return {loading: false, error: action.payload, success: false}
+    default:
+      return state;
+  }
 }
