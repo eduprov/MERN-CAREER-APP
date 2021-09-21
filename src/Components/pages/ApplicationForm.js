@@ -3,6 +3,7 @@ import Footer from "../Footer/Footer";
 import { Navbar } from "../Navbar";
 import { useDispatch, useSelector } from "react-redux";
 import { createInterviewAction } from "../../actions/interviewActions";
+import { useForm } from "react-hook-form";
 
 const ApplicationForm = ({ history }) => {
   const [position, setPosition] = useState("");
@@ -33,7 +34,6 @@ const ApplicationForm = ({ history }) => {
   console.log(interview);
 
   const submitHandler = (e) => {
-    e.preventDefault();
     dispatch(
       createInterviewAction(
         position,
@@ -69,6 +69,9 @@ const ApplicationForm = ({ history }) => {
     }
   }, [history, userInfo]);
 
+
+  const { register, handleSubmit } = useForm();
+
   return (
     <>
       <Navbar />
@@ -76,7 +79,7 @@ const ApplicationForm = ({ history }) => {
         <div className="row">
           <div className="col-md-1"></div>
           <div className="col-md-10">
-            <form onSubmit={submitHandler}>
+            <form onSubmit={handleSubmit(submitHandler)}>
               <div className="card">
                 <div className="card-body">
                   <h5>Application Form</h5>
@@ -87,6 +90,7 @@ const ApplicationForm = ({ history }) => {
                         <label>Job Position</label>
                         <select
                           className="form-control"
+                          {...register("position", { required: true })}
                           onChange={(e) => setPosition(e.target.value)}
                         >
                           <option>Choose...</option>
@@ -103,6 +107,7 @@ const ApplicationForm = ({ history }) => {
                           type="text"
                           className="form-control"
                           value={name}
+                          {...register("name", { required: true })}
                           onChange={(e) => setName(e.target.value)}
                         />
                       </div>
@@ -114,6 +119,7 @@ const ApplicationForm = ({ history }) => {
                           type="text"
                           className="form-control"
                           value={dob}
+                          {...register("dob", { required: true })}
                           onChange={(e) => setDob(e.target.value)}
                         />
                       </div>
@@ -125,6 +131,7 @@ const ApplicationForm = ({ history }) => {
                           type="text"
                           className="form-control"
                           value={gender}
+                          {...register("gender", { required: true })}
                           onChange={(e) => setGender(e.target.value)}
                         />
                       </div>
@@ -138,6 +145,7 @@ const ApplicationForm = ({ history }) => {
                           type="text"
                           className="form-control"
                           value={marital}
+                          {...register("marital", { required: true })}
                           onChange={(e) => setMarital(e.target.value)}
                         />
                       </div>
@@ -149,6 +157,7 @@ const ApplicationForm = ({ history }) => {
                           type="text"
                           className="form-control"
                           value={mobile}
+                          {...register("mobile", { required: true })}
                           onChange={(e) => setMobile(e.target.value)}
                         />
                       </div>
@@ -160,6 +169,7 @@ const ApplicationForm = ({ history }) => {
                           type="text"
                           className="form-control"
                           value={email}
+                          {...register("email", { required: true })}
                           onChange={(e) => setEmail(e.target.value)}
                         />
                       </div>
@@ -170,44 +180,48 @@ const ApplicationForm = ({ history }) => {
                   <div className="row mt-3">
                     <div className="col-md-4">
                       <div className="form-group mb-3">
-                        <label>10th / SSLC</label>
+                        <label>10th / SSLC %</label>
                         <input
                           type="text"
                           className="form-control"
                           value={sslc}
+                          {...register("sslc", { required: true })}
                           onChange={(e) => setSslc(e.target.value)}
                         />
                       </div>
                     </div>
                     <div className="col-md-4">
                       <div className="form-group mb-3">
-                        <label>12th / PUC</label>
+                        <label>12th / PUC %</label>
                         <input
                           type="text"
                           className="form-control"
                           value={puc}
+                          {...register("puc", { required: true })}
                           onChange={(e) => setPuc(e.target.value)}
                         />
                       </div>
                     </div>
                     <div className="col-md-4">
                       <div className="form-group mb-3">
-                        <label>Graduation</label>
+                        <label>Graduation %</label>
                         <input
                           type="text"
                           className="form-control"
                           value={grad}
+                          {...register("ug", { required: true })}
                           onChange={(e) => setGrad(e.target.value)}
                         />
                       </div>
                     </div>
                     <div className="col-md-4">
                       <div className="form-group mb-3">
-                        <label>Post Graduation</label>
+                        <label>Post Graduation %</label>
                         <input
                           type="text"
                           className="form-control"
                           value={postgrad}
+                          {...register("pg", { required: true })}
                           onChange={(e) => setPostGrad(e.target.value)}
                         />
                       </div>
@@ -224,6 +238,7 @@ const ApplicationForm = ({ history }) => {
                           type="text"
                           className="form-control"
                           value={workone}
+                          {...register("workone", { required: true })}
                           onChange={(e) => setWorkOne(e.target.value)}
                         />
                       </div>
@@ -234,6 +249,7 @@ const ApplicationForm = ({ history }) => {
                           type="text"
                           className="form-control"
                           value={worktwo}
+                          {...register("worktwo", { required: true })}
                           onChange={(e) => setWorkTwo(e.target.value)}
                         />
                       </div>
@@ -244,6 +260,7 @@ const ApplicationForm = ({ history }) => {
                           type="text"
                           className="form-control"
                           value={workthree}
+                          {...register("workthree", { required: true })}
                           onChange={(e) => setWorkThree(e.target.value)}
                         />
                       </div>
@@ -257,6 +274,7 @@ const ApplicationForm = ({ history }) => {
                           type="text"
                           className="form-control"
                           value={achone}
+                          {...register("achone", { required: true })}
                           onChange={(e) => setAchOne(e.target.value)}
                         />
                       </div>
@@ -267,6 +285,7 @@ const ApplicationForm = ({ history }) => {
                           type="text"
                           className="form-control"
                           value={achtwo}
+                          {...register("achtwo", { required: true })}
                           onChange={(e) => setAchTwo(e.target.value)}
                         />
                       </div>
@@ -277,6 +296,7 @@ const ApplicationForm = ({ history }) => {
                           type="text"
                           className="form-control"
                           value={achthree}
+                          {...register("achthree", { required: true })}
                           onChange={(e) => setAchThree(e.target.value)}
                         />
                       </div>
@@ -290,6 +310,7 @@ const ApplicationForm = ({ history }) => {
                           className="form-control"
                           rows="4"
                           value={address}
+                          {...register("address", { required: true })}
                           onChange={(e) => setAddress(e.target.value)}
                         ></textarea>
                       </div>
