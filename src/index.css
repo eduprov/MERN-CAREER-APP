@@ -12,9 +12,32 @@ code {
     monospace;
 }
 
+.banner-img-main {
+  height: 400px;
+  margin-top: -50px;
+}
+
 .banner-img {
   height: 400px;
   margin-top: -50px;
+}
+
+.application-image {
+  margin-bottom: 50px;
+}
+
+.banner-img-interview {
+  height: 400px;
+  margin-top: -50px;
+}
+
+.banner-img-manager {
+  height: 370px;
+  margin-top: 50px;
+}
+.banner-img-hr {
+  height: 400px;
+  margin-top: 50px;
 }
 
 .bt {
@@ -62,5 +85,16 @@ a.bt {
 @media only screen and (max-width: 768px) {
   .profileContainer {
     flex-direction: column-reverse;
+  }
+  .banner-img-main {
+    display: none;
+  }
+  .banner-img {
+    height: 400px;
+    margin-top: 50px;
+  }
+  .banner-img-interview {
+    height: 400px;
+    margin-top: 20px !important;
   }
 }

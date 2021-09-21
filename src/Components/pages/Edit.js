@@ -6,45 +6,93 @@ const Edit = ({ match }) => {
   const params = useParams();
   const [name, processName] = useState();
   const [email, processEmail] = useState("");
-
-  // const getInfo = () => {
-  //   var url = `http://localhost:5000/api/interviewapi/get/${params.id}`;
-  //   axios.get(url).then((response) => {
-  //     processName(response.data[0].name);
-  //     processEmail(response.data[0].email);
-  //   });
-  // };
+  const [dob, processDob] = useState("");
+  const [gender, processGender] = useState("");
+  const [marital, processMarital] = useState("");
+  const [mobile, processMobile] = useState("");
+  const [ssl, processSslc] = useState("");
+  const [puc, processPuc] = useState("");
+  const [grad, processGrad] = useState("");
+  const [postgrad, processPostGrad] = useState("");
+  const [workone, processWorkone] = useState("");
+  const [worktwo, processWorktwo] = useState("");
+  const [workthree, processWorkthree] = useState("");
+  const [achone, processAchone] = useState("");
+  const [achtwo, processAchtwo] = useState("");
+  const [achthree, processAchthree] = useState("");
+  const [address, processAddress] = useState("");
+  const [position, processPosition] = useState("");
+  const [report, processReport] = useState("");
 
   useEffect(() => {
     const fetching = async () => {
       const { data } = await axios.get(
         `http://localhost:5000/api/interviewapi/get/${match.params.id}`
       );
-
       processName(data.name);
+      processEmail(data.email);
+      processDob(data.dob);
+      processGender(data.gender);
+      processMarital(data.marital);
+      processMobile(data.mobile);
+      processSslc(data.sslc);
+      processPuc(data.puc);
+      processGrad(data.grad);
+      processPostGrad(data.postgrad);
+      processWorkone(data.workone);
+      processWorktwo(data.worktwo);
+      processWorkthree(data.workthree);
+      processAchone(data.achone);
+      processAchtwo(data.achtwo);
+      processAchthree(data.achthree);
+      processAddress(data.address);
+      processPosition(data.position);
+      processReport(data.report);
 
       console.log(data);
     };
 
     fetching();
   }, [match.params.id]);
+
+  const [message, updateMessage] = useState("");
   const updateInfo = () => {
     var url = `http://localhost:5000/api/interviewapi/${match.params.id}`;
     var jsonData = {
       name,
       email,
+      dob,
+      gender,
+      marital,
+      mobile,
+      ssl,
+      puc,
+      grad,
+      postgrad,
+      workone,
+      worktwo,
+      workthree,
+      achone,
+      achtwo,
+      achthree,
+      address,
+      position,
+      report,
+      address,
     };
     axios.put(url, jsonData).then((response) => {
       console.log(response.data);
     });
+    updateMessage("Data updated Successfully");
   };
 
   return (
     <div className="container mt-5">
       <div className="col-md-12 mb-3 text-center">
-        <h2 className="text-danger">Editing Interview Details {params.id} </h2>
+        <h2 className="text-danger">Editing Interview Details </h2>
+        <p className="text-success">{message}</p>
       </div>
-      <div className="row mb-3">
+      <div className="row mb-3 mt-5">
         <div className="col-lg-4 mb-3">
           <label>Name</label>
           <input
@@ -64,17 +112,154 @@ const Edit = ({ match }) => {
           />
         </div>
         <div className="col-lg-4 mb-3">
-          <label>City</label>
-          <input type="text" className="form-control" />
+          <label>Gender</label>
+          <input
+            type="text"
+            className="form-control"
+            value={gender}
+            onChange={(obj) => processGender(obj.target.value)}
+          />
         </div>
         <div className="col-lg-4 mb-3">
-          <label>Mobile</label>
-          <input type="text" className="form-control" />
+          <label>Marital Status</label>
+          <input
+            type="text"
+            className="form-control"
+            value={marital}
+            onChange={(obj) => processMarital(obj.target.value)}
+          />
         </div>
         <div className="col-lg-4 mb-3">
-          <label>Email-ID</label>
-          <input type="text" className="form-control" />
+          <label>Mobile No</label>
+          <input
+            type="text"
+            className="form-control"
+            value={mobile}
+            onChange={(obj) => processMobile(obj.target.value)}
+          />
         </div>
+        <div className="col-lg-4 mb-3">
+          <label>SSLC / 10TH </label>
+          <input
+            type="text"
+            className="form-control"
+            value={ssl}
+            onChange={(obj) => processSslc(obj.target.value)}
+          />
+        </div>
+        <div className="col-lg-4 mb-3">
+          <label>PUC / 12TH </label>
+          <input
+            type="text"
+            className="form-control"
+            value={puc}
+            onChange={(obj) => processPuc(obj.target.value)}
+          />
+        </div>
+        <div className="col-lg-4 mb-3">
+          <label>Graduation </label>
+          <input
+            type="text"
+            className="form-control"
+            value={grad}
+            onChange={(obj) => processGrad(obj.target.value)}
+          />
+        </div>
+        <div className="col-lg-4 mb-3">
+          <label>Post Graduation </label>
+          <input
+            type="text"
+            className="form-control"
+            value={postgrad}
+            onChange={(obj) => processPostGrad(obj.target.value)}
+          />
+        </div>
+        <div className="col-lg-4 mb-3">
+          <label>Work Exp I </label>
+          <input
+            type="text"
+            className="form-control"
+            value={workone}
+            onChange={(obj) => processWorkone(obj.target.value)}
+          />
+        </div>
+        <div className="col-lg-4 mb-3">
+          <label>Work Exp II </label>
+          <input
+            type="text"
+            className="form-control"
+            value={worktwo}
+            onChange={(obj) => processWorktwo(obj.target.value)}
+          />
+        </div>
+        <div className="col-lg-4 mb-3">
+          <label>Work Exp III </label>
+          <input
+            type="text"
+            className="form-control"
+            value={workthree}
+            onChange={(obj) => processWorkthree(obj.target.value)}
+          />
+        </div>
+        <div className="col-lg-4 mb-3">
+          <label>Achievements I </label>
+          <input
+            type="text"
+            className="form-control"
+            value={achone}
+            onChange={(obj) => processAchone(obj.target.value)}
+          />
+        </div>
+        <div className="col-lg-4 mb-3">
+          <label>Achievements II </label>
+          <input
+            type="text"
+            className="form-control"
+            value={achtwo}
+            onChange={(obj) => processAchtwo(obj.target.value)}
+          />
+        </div>
+        <div className="col-lg-4 mb-3">
+          <label>Achievements III </label>
+          <input
+            type="text"
+            className="form-control"
+            value={achthree}
+            onChange={(obj) => processAchthree(obj.target.value)}
+          />
+        </div>
+        <div className="col-lg-4 mb-3">
+          <label>Position </label>
+          <input
+            type="text"
+            className="form-control"
+            value={position}
+            onChange={(obj) => processPosition(obj.target.value)}
+          />
+        </div>
+        <div className="col-lg-4 mb-3">
+          <label>Status </label>
+          <select
+            className="form-control"
+            onChange={(e) => processReport(e.target.value)}
+          >
+            <option>Choose...</option>
+            <option>hr interview </option>
+            <option>managers interview </option>
+            <option>processing </option>
+            <option>selected </option>
+            <option>rejected</option>
+          </select>
+        </div>
+        <div className="col-lg-12 mb-3">
+          <label>Address </label>
+          <textarea
+            className="form-control"
+            value={address}
+            onChange={(e) => processAddress(e.target.value)}
+          ></textarea>
+        </div>
+
         <div className="col-lg-4 mb-3">
           <br />
           <button className="btn btn-warning text-white" onClick={updateInfo}>

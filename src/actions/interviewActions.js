@@ -50,6 +50,7 @@ export const listInterview = () => async (dispatch, getState) => {
 
 export const createInterviewAction =
   (
+    position,
     name,
     dob,
     gender,
@@ -66,7 +67,8 @@ export const createInterviewAction =
     achone,
     achtwo,
     achthree,
-    address
+    address,
+    report
   ) =>
   async (dispatch, getState) => {
     try {
@@ -88,6 +90,7 @@ export const createInterviewAction =
       const { data } = await axios.post(
         `http://localhost:5000/api/interviewapi/create`,
         {
+          position,
           name,
           dob,
           gender,
@@ -105,6 +108,7 @@ export const createInterviewAction =
           achtwo,
           achthree,
           address,
+          report,
         },
         config
       );

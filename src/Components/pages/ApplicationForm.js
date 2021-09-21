@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { createInterviewAction } from "../../actions/interviewActions";
 
 const ApplicationForm = ({ history }) => {
+  const [position, setPosition] = useState("");
   const [name, setName] = useState("");
   const [dob, setDob] = useState("");
   const [gender, setGender] = useState("");
@@ -22,6 +23,7 @@ const ApplicationForm = ({ history }) => {
   const [achtwo, setAchTwo] = useState("");
   const [achthree, setAchThree] = useState("");
   const [address, setAddress] = useState("");
+  const [report, setReport] = useState("pending");
 
   const dispatch = useDispatch();
 
@@ -34,6 +36,7 @@ const ApplicationForm = ({ history }) => {
     e.preventDefault();
     dispatch(
       createInterviewAction(
+        position,
         name,
         dob,
         gender,
@@ -50,7 +53,8 @@ const ApplicationForm = ({ history }) => {
         achone,
         achtwo,
         achthree,
-        address
+        address,
+        report
       )
     );
     history.push("/myhome");
@@ -63,7 +67,7 @@ const ApplicationForm = ({ history }) => {
     if (!userInfo) {
       history.push("/");
     }
-  },[history, userInfo]);
+  }, [history, userInfo]);
 
   return (
     <>
@@ -78,6 +82,20 @@ const ApplicationForm = ({ history }) => {
                   <h5>Application Form</h5>
                   <h6 className="mt-4 text-primary">Personal Details</h6>
                   <div className="row mt-4">
+                    <div className="col-md-4">
+                      <div className="form-group mb-3">
+                        <label>Job Position</label>
+                        <select
+                          className="form-control"
+                          onChange={(e) => setPosition(e.target.value)}
+                        >
+                          <option>Choose...</option>
+                          <option>Telecaller</option>
+                          <option>Telecounselor</option>
+                          <option>HR</option>
+                        </select>
+                      </div>
+                    </div>
                     <div className="col-md-4">
                       <div className="form-group mb-3">
                         <label>Name</label>
@@ -274,6 +292,20 @@ const ApplicationForm = ({ history }) => {
                           value={address}
                           onChange={(e) => setAddress(e.target.value)}
                         ></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="row mt-3">
+                    <div className="col-md-4">
+                      <div className="form-group mb-3">
+                        <label>Status</label>
+                        <input
+                          type="text"
+                          className="form-control"
+                          value={report}
+                          onChange={(e) => setReport(e.target.value)}
+                          disabled="true"
+                        />
                       </div>
                     </div>
                   </div>

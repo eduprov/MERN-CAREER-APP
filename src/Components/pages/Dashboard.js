@@ -24,9 +24,7 @@ const Dashboard = () => {
       <Navbar />
       <div className="container mt-5">
         <div className="row">
-           <div className="col-md-12">
-             
-           </div>
+          <div className="col-md-12"></div>
           <div className="col-md-12">
             <Link to="/application">
               <button className="bt">Apply Now</button>
@@ -39,6 +37,7 @@ const Dashboard = () => {
                   <th>Name</th>
                   <th>Mobile No</th>
                   <th>Email ID</th>
+                  <th>Job Position</th>
                   <th>Status</th>
                 </tr>
               </thead>
@@ -49,6 +48,8 @@ const Dashboard = () => {
                       <td>{interview.name}</td>
                       <td>{interview.mobile}</td>
                       <td>{interview.email}</td>
+                      <td>{interview.position}</td>
+                      <td>{interview.report}</td>
                     </tr>
                   );
                 })}

@@ -34,7 +34,7 @@ const RightSection = styled.div`
   display: flex;
 `;
 
-export function Navbar(props) {
+export function NavbarTwo(props) {
   const isMobile = useMediaQuery({ maxWidth: DeviceSize.mobile });
 
   const dispatch = useDispatch();
@@ -51,23 +51,10 @@ export function Navbar(props) {
         <Logo />
       </LeftSection>
       <MiddleSection>{!isMobile && <NavLinks />}</MiddleSection>
-      {userInfo ? (
-        <RightSection>
-          {!isMobile && <AccessibilityTwo />}
-          {isMobile && <MobileNavLinks />}
-        </RightSection>
-      ) : (
-        <RightSection>
-          {!isMobile && <Accessibility />}
-          {isMobile && <MobileNavLinks />}
-        </RightSection>
-      )}
-      {adminInfo ? (
         <RightSection>
           {!isMobile && <AccessibilityThree />}
           {isMobile && <MobileNavLinks />}
         </RightSection>
-      ) : (null)}
     </NavBarContainer>
   );
 }
