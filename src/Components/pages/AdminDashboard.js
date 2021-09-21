@@ -12,7 +12,7 @@ class AdminDashboard extends Component {
   }
 
   getInterview = () => {
-    fetch("http://localhost:5000/api/interviewapi/getall")
+    fetch("https://career-app-api-url.herokuapp.com/api/interviewapi/getall")
       .then((response) => response.json())
       .then((allinterview) =>
         this.setState({

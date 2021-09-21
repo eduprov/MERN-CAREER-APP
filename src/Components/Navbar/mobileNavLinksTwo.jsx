@@ -46,7 +46,7 @@ const Marginer = styled.div`
   height: 2em;
 `;
 
-export function MobileNavLinks(props) {
+export function MobileNavLinksTwo(props) {
   const [isOpen, setOpen] = useState(false);
 
   return (
@@ -61,7 +61,7 @@ export function MobileNavLinks(props) {
             <Link href="/application"></Link>
           </LinkItem>
           <Marginer />
-          <AccessibilityTwo />
+          <AccessibilityThree />
         </LinksWrapper>
       )}
     </NavLinksContainer>

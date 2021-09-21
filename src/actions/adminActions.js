@@ -10,10 +10,13 @@ export const login = (email, password) => async (dispatch) => {
   try {
     dispatch({ type: ADMIN_lOGIN_REQUEST });
 
-    const { data } = await axios.post("http://localhost:5000/api/admin/login", {
-      email,
-      password,
-    });
+    const { data } = await axios.post(
+      "https://career-app-api-url.herokuapp.com/api/admin/login",
+      {
+        email,
+        password,
+      }
+    );
 
     dispatch({
       type: ADMIN_lOGIN_SUCCESS,

@@ -10,7 +10,7 @@ const Edit = ({ match }) => {
   const [gender, processGender] = useState("");
   const [marital, processMarital] = useState("");
   const [mobile, processMobile] = useState("");
-  const [ssl, processSslc] = useState("");
+  const [sslc, processSslc] = useState("");
   const [puc, processPuc] = useState("");
   const [grad, processGrad] = useState("");
   const [postgrad, processPostGrad] = useState("");
@@ -27,7 +27,7 @@ const Edit = ({ match }) => {
   useEffect(() => {
     const fetching = async () => {
       const { data } = await axios.get(
-        `http://localhost:5000/api/interviewapi/get/${match.params.id}`
+        `https://career-app-api-url.herokuapp.com/api/interviewapi/get/${match.params.id}`
       );
       processName(data.name);
       processEmail(data.email);
@@ -57,7 +57,7 @@ const Edit = ({ match }) => {
 
   const [message, updateMessage] = useState("");
   const updateInfo = () => {
-    var url = `http://localhost:5000/api/interviewapi/${match.params.id}`;
+    var url = `https://career-app-api-url.herokuapp.com/api/interviewapi/${match.params.id}`;
     var jsonData = {
       name,
       email,
@@ -65,7 +65,7 @@ const Edit = ({ match }) => {
       gender,
       marital,
       mobile,
-      ssl,
+      sslc,
       puc,
       grad,
       postgrad,
@@ -143,7 +143,7 @@ const Edit = ({ match }) => {
           <input
             type="text"
             className="form-control"
-            value={ssl}
+            value={sslc}
             onChange={(obj) => processSslc(obj.target.value)}
           />
         </div>

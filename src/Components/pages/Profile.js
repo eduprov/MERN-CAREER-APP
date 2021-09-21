@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import { updateProfile } from "../../actions/userActions";
+import { Navbar } from "../Navbar";
 
 const Profile = () => {
   const [name, setName] = useState("");
@@ -70,74 +71,77 @@ const Profile = () => {
   };
 
   return (
-    <form onSubmit={SubmitHandler}>
-      <div className="container mt-5">
-        <div className="row">
-          <div className="col-md-6">
-            <h3>Profile Info</h3>
-            <p className="text-success">{message}</p>
-            <div className="form-group mb-3">
-              <label>Name</label>
-              <input
-                type="text"
-                className="form-control"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
+    <>
+      <Navbar />
+      <form onSubmit={SubmitHandler}>
+        <div className="container mt-5">
+          <div className="row">
+            <div className="col-md-6">
+              <h3>Profile Info</h3>
+              <p className="text-success">{message}</p>
+              <div className="form-group mb-3">
+                <label>Name</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
+              </div>
+              <div className="form-group mb-3">
+                <label>Email</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </div>
+              <div className="form-group mb-3">
+                <label>Password</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </div>
+              <div className="form-group mb-3">
+                <label>Confirm Password</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                />
+              </div>
+              <div className="form-group mb-3">
+                <label>Change Profile Pic</label>
+                <input
+                  type="file"
+                  className="form-control"
+                  onChange={(e) => postDetails(e.target.files[0])}
+                />
+              </div>
+              <div className="form-group">
+                <button className="bt">Submit</button>
+              </div>
             </div>
-            <div className="form-group mb-3">
-              <label>Email</label>
-              <input
-                type="text"
-                className="form-control"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </div>
-            <div className="form-group mb-3">
-              <label>Password</label>
-              <input
-                type="text"
-                className="form-control"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
-            <div className="form-group mb-3">
-              <label>Confirm Password</label>
-              <input
-                type="text"
-                className="form-control"
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-              />
-            </div>
-            <div className="form-group mb-3">
-              <label>Change Profile Pic</label>
-              <input
-                type="file"
-                className="form-control"
-                onChange={(e) => postDetails(e.target.files[0])}
-              />
-            </div>
-            <div className="form-group">
-              <button className="bt">Submit</button>
-            </div>
-          </div>
-          <div className="col-md-6">
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <img src={pic} alt={name} className="profilePic" />
+            <div className="col-md-6">
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <img src={pic} alt={name} className="profilePic" />
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </form>
+      </form>
+    </>
   );
 };
 

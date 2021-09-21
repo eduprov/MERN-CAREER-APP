@@ -320,7 +320,6 @@ const ApplicationForm = ({ history }) => {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 };

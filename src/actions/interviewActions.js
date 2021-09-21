@@ -28,7 +28,7 @@ export const listInterview = () => async (dispatch, getState) => {
     };
 
     const { data } = await axios.get(
-      `http://localhost:5000/api/interviewapi`,
+      `https://career-app-api-url.herokuapp.com/api/interviewapi`,
       config
     );
 
@@ -88,7 +88,7 @@ export const createInterviewAction =
       };
 
       const { data } = await axios.post(
-        `http://localhost:5000/api/interviewapi/create`,
+        `https://career-app-api-url.herokuapp.com/api/interviewapi/create`,
         {
           position,
           name,
@@ -141,7 +141,7 @@ export const updateInterviewAction =
       } = getState();
 
       const { data } = await axios.put(
-        `http://localhost:5000/api/interviewapi/${id}`,
+        `https://career-app-api-url.herokuapp.com/api/interviewapi/${id}`,
         { name, email }
       );
 

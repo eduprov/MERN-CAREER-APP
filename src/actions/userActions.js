@@ -15,10 +15,13 @@ export const login = (email, password) => async (dispatch) => {
   try {
     dispatch({ type: USER_LOGIN_REQUEST });
 
-    const { data } = await axios.post("http://localhost:5000/api/users/login", {
-      email,
-      password,
-    });
+    const { data } = await axios.post(
+      "https://career-app-api-url.herokuapp.com/api/users/login",
+      {
+        email,
+        password,
+      }
+    );
 
     dispatch({
       type: USER_LOGIN_SUCCESS,
@@ -45,12 +48,15 @@ export const register = (name, email, password, pic) => async (dispatch) => {
   try {
     dispatch({ type: USER_REGISTER_FAIL });
 
-    const { data } = await axios.post("http://localhost:5000/api/users", {
-      name,
-      email,
-      password,
-      pic,
-    });
+    const { data } = await axios.post(
+      "https://career-app-api-url.herokuapp.com/api/users",
+      {
+        name,
+        email,
+        password,
+        pic,
+      }
+    );
 
     dispatch({ type: USER_REGISTER_SUCCESS, payload: data });
 
@@ -84,7 +90,7 @@ export const updateProfile = (user) => async (dispatch, getState) => {
     };
 
     const { data } = await axios.post(
-      "http://localhost:5000/api/users/profile",
+      "https://career-app-api-url.herokuapp.com/api/users/profile",
       user,
       config
     );

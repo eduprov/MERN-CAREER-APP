@@ -21,8 +21,9 @@ export const listInterviews = () => async (dispatch, getState) => {
       },
     };
 
-    const  data  = await axios.get(
-      `http://localhost:5000/api/interviewapi/getall`, config
+    const data = await axios.get(
+      `https://career-app-api-url.herokuapp.com/api/interviewapi/getall`,
+      config
     );
 
     dispatch({
