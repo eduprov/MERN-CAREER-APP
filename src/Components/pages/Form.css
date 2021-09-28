@@ -143,7 +143,11 @@
 }
 
 @media screen and (min-width: 1px) and (max-width: 768px) {
- 
+  .form-content-left {
+    background: linear-gradient(90deg, #73ac5f 0%, #69a154 100%);
+    border-radius: 10px 0 0 10px;
+    position: relative;
+  }
   .form-container {
     margin: 12px auto;
     width: 1000px;
@@ -154,5 +158,4 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
-  
 }

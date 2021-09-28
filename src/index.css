@@ -86,6 +86,9 @@ a.bt {
   .profileContainer {
     flex-direction: column-reverse;
   }
+  .banner-img-main {
+    display: none;
+  }
   .banner-img {
     height: 400px;
     margin-top: 50px;
