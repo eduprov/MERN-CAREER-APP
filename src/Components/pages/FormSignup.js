@@ -38,7 +38,6 @@ const FormSignup = () => {
     }
   };
 
-
   const postDetails = (pics) => {
     if (
       pics ===
@@ -69,75 +68,78 @@ const FormSignup = () => {
   };
 
   return (
-    <div className="form-content-right">
-      <form className="form" onSubmit={save}>
-        <h1>
-          Get started with us today! Create your account by filling out the
-          information below.
-        </h1>
+    <>
+      <div className="form-content-right">
+        <form className="form" onSubmit={save}>
+          <h1>
+            Get started with us today! Create your account by filling out the
+            information below.
+          </h1>
 
-        {loading && (
-          <div class="spinner-border text-success" role="status">
-            <span class="sr-only"></span>
+          {loading && (
+            <div class="spinner-border text-success" role="status">
+              <span class="sr-only"></span>
+            </div>
+          )}
+          <p className="text-success">{message}</p>
+          <p className="text-success">{error}</p>
+          <div className="form-inputs">
+            <label className="form-label">Username</label>
+            <input
+              className="form-input"
+              type="text"
+              placeholder="Enter your username"
+              value={name}
+              onChange={(e) => pickName(e.target.value)}
+            />
           </div>
-        )}
-        <p className="text-success">{message}</p>
-        <p className="text-success">{error}</p>
-        <div className="form-inputs">
-          <label className="form-label">Username</label>
-          <input
-            className="form-input"
-            type="text"
-            placeholder="Enter your username"
-            value={name}
-            onChange={(e) => pickName(e.target.value)}
-          />
-        </div>
-        <div className="form-inputs">
-          <label className="form-label">Email</label>
-          <input
-            className="form-input"
-            type="email"
-            placeholder="Enter your email"
-            value={email}
-            onChange={(e) => pickEmail(e.target.value)}
-          />
-        </div>
-        <div className="form-inputs">
-          <label className="form-label">Password</label>
-          <input
-            className="form-input"
-            type="password"
-            placeholder="Enter your password"
-            value={password}
-            onChange={(e) => pickPassword(e.target.value)}
-          />
-        </div>
-        <div className="form-inputs">
-          <label className="form-label">Confirm Password</label>
-          <input
-            className="form-input"
-            type="password"
-            placeholder="Enter your password"
-            value={confirmpassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-          />
-        </div>
-        <div className="form-inputs">
-          <label className="form-label">Profile Pic</label>
-          <input
-            className="form-input form-control"
-            type="file"
-            placeholder="Select Profile pic"
-            onChange={(e) => postDetails(e.target.files[0])}
-          />
-        </div>
-        <button className="form-input-btn">Sign up</button>
-        <span className="form-input-login">
-          Already have an account? Login <Link to="/login">here</Link>
-        </span>
-      </form>
-    </div>
+          <div className="form-inputs">
+            <label className="form-label">Email</label>
+            <input
+              className="form-input"
+              type="email"
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => pickEmail(e.target.value)}
+            />
+          </div>
+          <div className="form-inputs">
+            <label className="form-label">Password</label>
+            <input
+              className="form-input"
+              type="password"
+              placeholder="Enter your password"
+              value={password}
+              onChange={(e) => pickPassword(e.target.value)}
+            />
+          </div>
+          <div className="form-inputs">
+            <label className="form-label">Confirm Password</label>
+            <input
+              className="form-input"
+              type="password"
+              placeholder="Enter your password"
+              value={confirmpassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+            />
+          </div>
+          <div className="form-inputs">
+            <label className="form-label">Profile Pic</label>
+            <input
+              className="form-input form-control"
+              type="file"
+              placeholder="Select Profile pic"
+              onChange={(e) => postDetails(e.target.files[0])}
+            />
+          </div>
+          <button className="form-input-btn">Sign up</button>
+          <span className="form-input-login">
+            Already have an account? Login <Link to="/login">here</Link>
+          </span>
+        </form>
+      </div>
+
+    </>
   );
 };
 
