@@ -143,9 +143,7 @@
 }
 
 @media screen and (min-width: 1px) and (max-width: 768px) {
-  body {
-    overflow-x: hidden !important; /* Hide scrollbars */
-  }
+ 
   .form-container {
     margin: 12px auto;
     width: 1000px;
@@ -156,7 +154,5 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
-  .form-content-left {
-    display: none;
-  }
+  
 }
