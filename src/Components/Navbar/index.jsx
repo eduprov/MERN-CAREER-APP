@@ -9,6 +9,7 @@ import { useMediaQuery } from "react-responsive";
 import { useDispatch, useSelector } from "react-redux";
 import { AccessibilityTwo } from "./accessibility2";
 import { AccessibilityThree } from "./accessibility3";
+import { MobileNavLinksThree } from "./mobileNavLinksThree";
 
 const NavBarContainer = styled.div`
   width: 100%;
@@ -59,7 +60,7 @@ export function Navbar(props) {
       ) : (
         <RightSection>
           {!isMobile && <Accessibility />}
-          {isMobile && <MobileNavLinks />}
+          {isMobile && <MobileNavLinksThree />}
         </RightSection>
       )}
       {adminInfo ? (
@@ -67,7 +68,7 @@ export function Navbar(props) {
           {!isMobile && <AccessibilityThree />}
           {isMobile && <MobileNavLinks />}
         </RightSection>
-      ) : (null)}
+      ) : null}
     </NavBarContainer>
   );
 }
